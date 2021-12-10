@@ -15,7 +15,6 @@ void setup() {
 
   for (int x = 50; x < mewtwoX.width; x += scaleImage) {
     for (int y = 50; y < mewtwoX.height; y += scaleImage) {
-      // this translates x and y coordinates into a location in the pixels array
       int loc = x + y * (mewtwoX.width);
       spots.add(new spot(x, y, mewtwoX.pixels[loc]));
     }

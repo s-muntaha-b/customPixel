@@ -1,16 +1,16 @@
 class spot {
 
   PVector position, target;
-  color col;
+  color colours;
   float speed;
   float spotSize;
   
   spot(float x, float y, color _col) {
+    colours = _col;
     position = new PVector(x, y);
     target = new PVector(random(width), random(height));
-    col = _col;
     
-    float b = brightness(col) / 255;
+    float b = brightness(colours) / 255;
     speed = b / 800;
     spotSize = abs(50 - (b * 5)) + 5;
   }
@@ -20,7 +20,7 @@ class spot {
   }
   
   void draw() {
-    stroke(col);
+    stroke(colours);
     strokeWeight(spotSize);
     point(position.x, position.y);
   }
