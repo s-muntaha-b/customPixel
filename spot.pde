@@ -11,8 +11,8 @@ class spot {
     col = _col;
     
     float b = brightness(col) / 255;
-    speed = b / 1000;
-    spotSize = abs(10 - (b * 10)) + 2;
+    speed = b / 800;
+    spotSize = abs(50 - (b * 5)) + 5;
   }
   
   void update() {
