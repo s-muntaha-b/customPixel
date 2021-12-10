@@ -11,8 +11,8 @@ class spot {
     target = new PVector(random(width), random(height));
     
     float b = brightness(colours) / 255;
-    speed = b / 800;
-    spotSize = abs(50 - (b * 5)) + 5;
+    speed = b / 1000;
+    spotSize = abs(38 - (b * 5)) + 3;
   }
   
   void update() {
