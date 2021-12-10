@@ -1,30 +1,30 @@
-PImage newtwoOG, newtwoImg;
+PImage img;
+ArrayList<spot> spots;
+int scaleImage = 4; // will use only every 4th pixel from the image
 
 void setup() {
   size(1080, 1080, P2D);  
-  newtwoOG = loadImage("megaMewtwoY.png");
-  newtwoOG.resize(1080,1080);
-;
-  newtwoOG.loadPixels();
+  img = loadImage("megaMewtwoY.png");
   
-  newtwoImg = newtwoOG.get();
-  newtwoImg.loadPixels();
+  img.loadPixels();
+  spots = new ArrayList<spot>();
+
+  for (int x = 0; x < img.width; x += scaleImage) {
+    for (int y = 0; y < img.height; y += scaleImage) {
+      // this translates x and y coordinates into a location in the pixels array
+      int loc = x + y * (img.width);
+      
+      spots.add(new spot(x, y, img.pixels[loc]));
+    }
+  }
 }
 
 void draw() { 
-  int indexOne = int(random(2, 10));
-  int indexTwo = int(random(4, 10));
-  int indexThree = int(random(6, 10));
+  background(0);
   
-  for (int i=0; i<newtwoImg.pixels.length; i++) {
-    if (i % indexOne == 0) {
-      newtwoImg.pixels[i] = color(159, 43, 104);
-    } else if (i % indexTwo == 0) {
-      newtwoImg.pixels[i] = color(48, 25, 52);
-    } else if (i % indexThree == 0) {
-      newtwoImg.pixels[i] = color(216, 191, 216);
-    } 
+  for (spot spot : spots) {
+    spot.run();
   }
-  newtwoImg.updatePixels();
-  image(newtwoImg, 0, 0);
+  
+  surface.setTitle("" + frameRate);
 }
