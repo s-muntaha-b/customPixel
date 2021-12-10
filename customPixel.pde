@@ -20,7 +20,7 @@ void draw() {
     if (i % indexOne == 0) {
       newtwoImg.pixels[i] = color(159, 43, 104);
     } else if (i % indexTwo == 0) {
-      newtwoImg.pixels[i] = color(119, 7, 55);
+      newtwoImg.pixels[i] = color(48, 25, 52);
     } else if (i % indexThree == 0) {
       newtwoImg.pixels[i] = color(216, 191, 216);
     } 
