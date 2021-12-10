@@ -1,28 +1,32 @@
-class spot {
+class Dot {
 
-  PVector position, target;
-  color colours;
-  float speed;
-  float spotSize;
+  PVector target, pos, mewtwo;
   
-  spot(float x, float y, color _col) {
-    colours = _col;
-    position = new PVector(x, y);
-    target = new PVector(random(width), random(height));
-    
-    float b = brightness(colours) / 255;
-    speed = b / 1000;
-    spotSize = abs(38 - (b * 5)) + 3;
+  float speed;
+  float dotSize;
+  boolean ready;
+  
+  color col;
+  
+  
+  Dot(float x, float y, color _col, PVector _target) {
+    pos = new PVector(x, y);
+    col = _col;
+    target = _target;
+    speed = 0.02;
+    dotSize = 10;
+    ready = false;
   }
   
   void update() {
-    position.lerp(target, speed);
+    pos.lerp(target, speed);
+    ready = pos.dist(target) < 10;
   }
   
   void draw() {
-    stroke(colours);
-    strokeWeight(spotSize);
-    point(position.x, position.y);
+    stroke(col);
+    strokeWeight(dotSize);
+    point(pos.x, pos.y);
   }
   
   void run() {
