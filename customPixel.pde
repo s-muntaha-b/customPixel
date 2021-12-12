@@ -1,7 +1,7 @@
 PImage megaX, megaY;
 color col1, col2;
 
-ArrayList<Dot> dots;
+ArrayList<Spot> spots;
 ArrayList<PVector> arrayOne, arrayTwo;
 
 int scaler = 3; // 3rd pixel from the images
@@ -49,7 +49,7 @@ void setup() {
     }
   }
 
-  dots = new ArrayList<Dot>();
+  spots = new ArrayList<Spot>();
 
   for (int x = 0; x < megaX.width; x += scaler) {
     for (int y = 0; y < megaX.height; y += scaler) {
@@ -58,8 +58,8 @@ void setup() {
       if (brightness(megaX.pixels[loc]) > threshold) {
         int targetIndex = int(random(0, arrayTwo.size()));
         arrayOne.add(new PVector(x, y));
-        Dot dot = new Dot(x, y, col1, arrayTwo.get(targetIndex));
-        dots.add(dot);
+        Spot spot = new Spot(x, y, col1, arrayTwo.get(targetIndex));
+        spots.add(spot);
       }
     }
   }
@@ -72,13 +72,13 @@ void draw() {
   
   boolean flipTargets = true;
 
-  for (Dot dot : dots) {
-    dot.run();
-    if (!dot.ready) flipTargets = false;
+  for (Spot spot : spots) {
+    spot.run();
+    if (!spot.ready) flipTargets = false;
   }
   
   if (flipTargets) {
-    for (Dot dot : dots) {
+    for (Spot dot : spots) {
       if (!imageToggled) {
         int targetIndex = int(random(0, arrayOne.size()));
         dot.target = arrayOne.get(targetIndex);
