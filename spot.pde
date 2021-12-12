@@ -9,7 +9,7 @@ class Spot {
   color col;
   
   
-  Spot(float x, float y, color _col, PVector _target) {
+  Spot(float x, float y, color _col, PVector _target) { // Referenced from class material
     pos = new PVector(x, y);
     col = _col;
     target = _target;
