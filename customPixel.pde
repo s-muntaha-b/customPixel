@@ -35,7 +35,7 @@ void setup() {
   arrayOne = new ArrayList<PVector>();
   arrayTwo = new ArrayList<PVector>();
   
-  col1 = color(186, 85, 211, 30);
+  col1 = color(255, 127, 239, 30);
   col2 = color(74, 0, 130, 30);
   
   for (int x = 0; x < megaY.width; x += scaler) {  // Referenced from class material
