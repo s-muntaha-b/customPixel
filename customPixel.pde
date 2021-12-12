@@ -70,14 +70,14 @@ void draw() {
   
   blendMode(ADD);
   
-  boolean flipTargets = true;
+  boolean imageFlip = true;
 
   for (Spot spot : spots) {
     spot.run();
-    if (!spot.ready) flipTargets = false;
+    if (!spot.ready) imageFlip  = false;
   }
   
-  if (flipTargets) {
+  if (imageFlip) {
     for (Spot dot : spots) {
       if (!imageToggled) {
         int targetIndex = int(random(0, arrayOne.size()));
