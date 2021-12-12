@@ -4,7 +4,7 @@ color col1, col2;
 ArrayList<Dot> dots;
 ArrayList<PVector> arrayOne, arrayTwo;
 
-int scaler = 3; // will use only every 2nd pixel from the image
+int scaler = 3; // 3rd pixel from the images
 int threshold = 200;
 
 boolean imageToggled = false;
@@ -40,8 +40,8 @@ void setup() {
   
   for (int x = 0; x < megaY.width; x += scaler) {
     for (int y = 0; y < megaY.height; y += scaler) {
-      // this translates x and y coordinates into a location in the pixels array
       int loc = x + y * megaY.width;
+
 
       if (brightness(megaY.pixels[loc]) > threshold) {
         arrayTwo.add(new PVector(x, y));
