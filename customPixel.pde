@@ -1,4 +1,4 @@
-PImage megaX, megaY;
+PImage dialgaImg, palkiaImg;
 color col1, col2;
 
 ArrayList<Spot> spots;
@@ -11,26 +11,26 @@ boolean imageToggled = false;
 
 void setup() {
   size(1080, 1080, P2D);  
-  megaX = loadImage("dialgaPixel.png"); // Picture belongs to Pokemon/Nintendo
-  megaX.resize(1080, 1080);
-  megaY = loadImage("palkiaPixel.png"); // Picture belongs to Pokemon/Nintedo
-  megaY.resize(1080, 1080);
+  dialgaImg = loadImage("dialgaPixel.png"); // Picture belongs to Pokemon/Nintendo
+  dialgaImg.resize(1080, 1080);
+  palkiaImg = loadImage("palkiaPixel.png"); // Picture belongs to Pokemon/Nintedo
+  palkiaImg.resize(1080, 1080);
 
     int w, h;
-  if (megaX.width > megaY.width) { // Referenced from class material
-    w = megaX.width;
+  if (dialgaImg.width > palkiaImg.width) { // Referenced from class material
+    w = dialgaImg.width;
   } else {
-    w = megaY.width; 
+    w = palkiaImg.width; 
   }
-  if (megaX.height > megaY.height) {
-    h = megaX.height;
+  if (dialgaImg.height > palkiaImg.height) {
+    h = dialgaImg.height;
   } else {
-    h = megaY.height;
+    h = palkiaImg.height;
   }
   surface.setSize(w, h);
   
-  megaX.loadPixels();
-  megaY.loadPixels();
+  dialgaImg.loadPixels();
+  palkiaImg.loadPixels();
   
   arrayOne = new ArrayList<PVector>();
   arrayTwo = new ArrayList<PVector>();
@@ -38,12 +38,12 @@ void setup() {
   col1 = color(255, 0, 247, 30);
   col2 = color(0, 26, 255, 30);
   
-  for (int x = 0; x < megaY.width; x += scaler) {  // Referenced from class material
-    for (int y = 0; y < megaY.height; y += scaler) {
-      int loc = x + y * megaY.width;
+  for (int x = 0; x < palkiaImg.width; x += scaler) {  // Referenced from class material
+    for (int y = 0; y < palkiaImg.height; y += scaler) {
+      int loc = x + y * palkiaImg.width;
 
 
-      if (brightness(megaY.pixels[loc]) > threshold) {
+      if (brightness(palkiaImg.pixels[loc]) > threshold) {
         arrayTwo.add(new PVector(x, y));
       }
     }
@@ -51,11 +51,11 @@ void setup() {
 
   spots = new ArrayList<Spot>();
 
-  for (int x = 0; x < megaX.width; x += scaler) {  
-    for (int y = 0; y < megaX.height; y += scaler) {
-      int loc = x + y * megaX.width;
+  for (int x = 0; x < dialgaImg.width; x += scaler) {  
+    for (int y = 0; y < dialgaImg.height; y += scaler) {
+      int loc = x + y * dialgaImg.width;
       
-      if (brightness(megaX.pixels[loc]) > threshold) {
+      if (brightness(dialgaImg.pixels[loc]) > threshold) {
         int targetIndex = int(random(0, arrayTwo.size()));
         arrayOne.add(new PVector(x, y));
         Spot spot = new Spot(x, y, col1, arrayTwo.get(targetIndex));
