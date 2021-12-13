@@ -11,9 +11,9 @@ boolean imageToggled = false;
 
 void setup() {
   size(1080, 1080, P2D);  
-  megaX = loadImage("megaMewtwoX.png");
+  megaX = loadImage("dialgaPixel.png"); // Picture belongs to Pokemon/Nintendo
   megaX.resize(1080, 1080);
-  megaY = loadImage("megaMewtwoY.png");
+  megaY = loadImage("palkiaPixel.png"); // Picture belongs to Pokemon/Nintedo
   megaY.resize(1080, 1080);
 
     int w, h;
@@ -35,8 +35,8 @@ void setup() {
   arrayOne = new ArrayList<PVector>();
   arrayTwo = new ArrayList<PVector>();
   
-  col1 = color(255, 127, 239, 30);
-  col2 = color(74, 0, 130, 30);
+  col1 = color(255, 0, 247, 30);
+  col2 = color(0, 26, 255, 30);
   
   for (int x = 0; x < megaY.width; x += scaler) {  // Referenced from class material
     for (int y = 0; y < megaY.height; y += scaler) {
