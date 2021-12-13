@@ -12,9 +12,9 @@ boolean imageToggled = false;
 void setup() {
   size(1080, 1080, P2D);  
   dialgaImg = loadImage("dialgaPixel.png"); // Picture belongs to Pokemon/Nintendo
-  dialgaImg.resize(1080, 1080);
+  dialgaImg.resize(1000, 1000);
   palkiaImg = loadImage("palkiaPixel.png"); // Picture belongs to Pokemon/Nintedo
-  palkiaImg.resize(1080, 1080);
+  palkiaImg.resize(1000, 1000);
 
     int w, h;
   if (dialgaImg.width > palkiaImg.width) { // Referenced from class material
@@ -78,15 +78,15 @@ void draw() {
   }
   
   if (imageFlip) {
-    for (Spot dot : spots) {
+    for (Spot spot : spots) {
       if (!imageToggled) {
         int targetIndex = int(random(0, arrayOne.size()));
-        dot.target = arrayOne.get(targetIndex); // Referenced from class material
-        dot.col = col2;
+        spot.target = arrayOne.get(targetIndex); // Referenced from class material
+        spot.col = col2;
       } else {
         int targetIndex = int(random(0, arrayTwo.size()));
-        dot.target = arrayTwo.get(targetIndex);
-        dot.col = col1;
+        spot.target = arrayTwo.get(targetIndex);
+        spot.col = col1;
       }
     }
     imageToggled = !imageToggled;
